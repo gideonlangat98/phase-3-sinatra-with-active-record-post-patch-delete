@@ -5,10 +5,10 @@ class ApplicationController < Sinatra::Base
   post '/reviews' do
     binding.pry
     review = Review.create(
-      score = params[:score],
-      comment = params[:comment],
-      game_id = params[:game_id],
-      user_id = params[:user_id]
+      score: params[:score],
+      comment: params[:comment],
+      game_id: params[:game_id],
+      user_id: params[:user_id]
     )
     review.to_json  
   end
@@ -29,10 +29,10 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/reviews/:id' do
-    review = Review.find(params[:id])
+    review =  Review.find(params[:id])
     review.update(
-      score = params[:score],
-      comment = params[:comment]
+      score: params[:score],
+      comment: params[:comment]
     )
     review.to_json
   end
